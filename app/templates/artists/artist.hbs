@@ -1,0 +1,14 @@
+<div class="artist">
+    <h4>{{model.artist.artistName}} Songs</h4>
+    {{#each model.songs as |song|}}
+    <div class="artist">
+        <h5>
+            {{song.title}}
+        </h5>
+    </div>
+    {{/each}}
+</div>
+
+{{outlet}}
+
+{{log model}}

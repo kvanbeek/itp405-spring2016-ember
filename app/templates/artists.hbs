@@ -1,0 +1,12 @@
+<div class="col-md-2">
+    {{#each model.artists as |artist|}}
+        {{#link-to 'artists.artist' artist.id}}
+            <div class="artist">
+                <h4>
+                    {{artist.artistName}}
+                </h4>
+            </div>
+        {{/link-to}}
+    {{/each}}
+</div>
+{{outlet}}
