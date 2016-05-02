@@ -14,7 +14,7 @@ export default Ember.Component.extend({
           var coordinates = {
               lat: parseFloat(place.geometry.location.lat().toFixed(6)),
               lng: parseFloat(place.geometry.location.lng().toFixed(6))
-          }
+          };
           
           console.log(coordinates);
           console.log(place.formatted_address);

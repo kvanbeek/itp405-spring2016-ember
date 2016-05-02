@@ -10,17 +10,17 @@ export default Ember.Controller.extend({
             
             var self = this;
 
-            var form = $("#myForm");
+            var form = Ember.$("#myForm");
             var formData = new FormData(form);
-            var path = $("#path").val();
-            var quantity = $("#quantity").val();
-            var description = $("#description").val();
+            var path = Ember.$("#path").val();
+            var quantity = Ember.$("#quantity").val();
+            var description = Ember.$("#description").val();
             var prices = [{
-                displayName: $("#displayName").val(),
-                priceDisplay: $("#priceDisplay").val(),
-                quantity: $("#priceQuantity").val(),
-                quantityDisplay: $("#quantityDisplay").val(),
-                weight: $("#weight").val()
+                displayName: Ember.$("#displayName").val(),
+                priceDisplay: Ember.$("#priceDisplay").val(),
+                quantity: Ember.$("#priceQuantity").val(),
+                quantityDisplay: Ember.$("#quantityDisplay").val(),
+                weight: Ember.$("#weight").val()
             }];
             var fileInput = document.getElementById('productImage');
             var file = fileInput.files[0];
@@ -34,7 +34,7 @@ export default Ember.Controller.extend({
             var xhr = new XMLHttpRequest();
 
             xhr.open('POST', 'http://localhost:8000/admin/product', true);
-            xhr.setRequestHeader("Authorization", $.cookie('access_token'));
+            xhr.setRequestHeader("Authorization", Ember.$.cookie('access_token'));
             xhr.onload = function () {
                 if (xhr.status === 200) {
                     // File(s) uploaded.

@@ -4,7 +4,7 @@ export default Ember.Route.extend({
     user: Ember.inject.service('user'),
     loggedIn: 'testing',
     beforeModel: function() {
-        var access_token = $.cookie('access_token');
+        var access_token = Ember.$.cookie('access_token');
         if (access_token) {
         console.log('an access token was found');
         Ember.$.ajaxSetup({

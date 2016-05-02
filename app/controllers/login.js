@@ -6,12 +6,8 @@ export default Ember.Controller.extend({
       login() {
          var self = this;
           console.log('login button pressed');
-          var email = $("#username").val();
-          var password = $("#password").val();
-          var data = {
-            email: email,
-            password: password
-          };
+          var email = Ember.$("#username").val();
+          var password = Ember.$("#password").val();
 
           this.get('api').login(email, password).then(function (response) {
             console.log('response from login: ', response);

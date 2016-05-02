@@ -41,10 +41,10 @@ export default Ember.Service.extend({
     setTotalPrice() {
         var totalPrice = 0;
         for (var i = 0; i < this.items.length; i++) {
-            var item = this.items[i];
             totalPrice = totalPrice + this.items[i].price;
         }
         this.set('totalPrice', totalPrice);
+        return totalPrice;
     }
     
 });

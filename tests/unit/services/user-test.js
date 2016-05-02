@@ -10,3 +10,15 @@ test('it exists', function(assert) {
   let service = this.subject();
   assert.ok(service);
 });
+
+test('userLoggedIn() should set loggedIn to true', function (assert) {
+  let user = this.subject();
+  user.userLoggedIn();
+  assert.equal(user.loggedIn, true);
+});
+
+test('userLoggedOut() should set loggedIn to false', function (assert) {
+  let user = this.subject();
+  user.userLoggedOut();
+  assert.equal(user.loggedIn, false);
+});

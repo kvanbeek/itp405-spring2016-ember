@@ -9,7 +9,7 @@ export default Ember.Service.extend({
       email: email,
       password: password
     };
-    var promise = jQuery.post("https://api.buddyfarms.com/auth/login", data).then(
+    var promise = Ember.$.post("https://api.buddyfarms.com/auth/login", data).then(
       function (data) {
         self.token = data.token;
         Ember.$.ajaxSetup({
@@ -20,7 +20,7 @@ export default Ember.Service.extend({
 
         var expireDate = new Date();
         expireDate.setDate(expireDate.getDate() + 1);
-        $.cookie("access_token", data.token, {expires: expireDate});
+        Ember.$.cookie("access_token", data.token, {expires: expireDate});
         self.get('user').userLoggedIn();
         console.log(data);
         return data;
@@ -28,23 +28,22 @@ export default Ember.Service.extend({
       function (error) {
         return {status: error.statusText, message: error.responseText};
       }
-    )
+    );
     return Ember.RSVP.resolve(promise);
   },
   
   logout: function () {
-    var self = this;
     Ember.$.ajaxSetup({
       headers: {
         'Authorization': ''
       }
     });
-    $.removeCookie("access_token");
+    Ember.$.removeCookie("access_token");
     this.get('user').userLoggedOut();
   },
 
   sendOrder: function (data) {
-    var promise = jQuery.post("http://localhost:8000/order", data).then(
+    var promise = Ember.$.post("http://localhost:8000/order", data).then(
       function (data) {
         return data;
       },
@@ -52,20 +51,10 @@ export default Ember.Service.extend({
         console.log(error);
         return error;
       }
-    )
+    );
     return Ember.RSVP.resolve(promise);
   },
   
-  createProduct: function (data) {
-    var promise = jQuery.post("https://api.buddyfarms.com/admin/product", data).then(
-      function (response) {
-        return response;
-      },
-      function(error) {
-        console.log(error);
-        return error;
-      })
-  }
 });
 // this.submitOrder = function (data) {
     
