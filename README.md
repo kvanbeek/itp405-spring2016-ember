@@ -1,5 +1,7 @@
 # Client-app
 
+[![Build Status](https://travis-ci.org/kvanbeek/itp405-spring2016-ember.svg?branch=master)](https://travis-ci.org/kvanbeek/itp405-spring2016-ember)
+
 This README outlines the details of collaborating on this Ember application.
 A short introduction of this app could easily go here.
 

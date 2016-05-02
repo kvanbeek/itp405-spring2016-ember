@@ -33,7 +33,7 @@ export default Ember.Controller.extend({
             
             var xhr = new XMLHttpRequest();
 
-            xhr.open('POST', 'http://localhost:8000/admin/product', true);
+            xhr.open('POST', 'https://api.buddyfarms.com/admin/product', true);
             xhr.setRequestHeader("Authorization", Ember.$.cookie('access_token'));
             xhr.onload = function () {
                 if (xhr.status === 200) {

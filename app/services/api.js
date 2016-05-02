@@ -43,7 +43,7 @@ export default Ember.Service.extend({
   },
 
   sendOrder: function (data) {
-    var promise = Ember.$.post("http://localhost:8000/order", data).then(
+    var promise = Ember.$.post("https://api.buddyfarms.com/order", data).then(
       function (data) {
         return data;
       },
