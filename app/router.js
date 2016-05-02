@@ -18,6 +18,7 @@ Router.map(function() {
       this.route('inventory', { path: ':id'});
     });
     this.route('product');
+    this.route('update', {path: ':id'});
   });
 });
 
