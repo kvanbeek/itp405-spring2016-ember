@@ -1,0 +1,9 @@
+{{#each product.Prices as |price|}}
+		<!-- {{yield}} -->
+	<div class="priceBackground">
+		<button class="btn btn-primary-outline">
+			{{price.displayName}}
+		</button>
+	</div>
+		
+{{/each}}

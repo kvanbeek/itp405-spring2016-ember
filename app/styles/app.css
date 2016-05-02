@@ -1,0 +1,27 @@
+.priceSelector {
+  color: white;
+  text-align: center;
+  
+}
+
+.prices {
+  margin-top: 40px;
+}
+
+.addToCart {
+  margin-top: 75px;
+  background-color: white;
+  display: inline-block;
+  border-radius: .25rem;
+}
+
+.priceBackground {
+  background-color: white;
+  display: inline-block;
+  border-radius: .25rem;
+}
+
+
+.thumb {
+    width: 100px;
+}

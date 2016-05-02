@@ -1,0 +1,42 @@
+
+<div class="container">
+  <div>
+    {{#link-to "admin.product"}}
+    <a href="/create" class="btn btn-primary pull-right">Create Product</a>
+    {{/link-to}}
+    <table class="table table-hover">
+      <tr>
+        <!--<th>Edit</th>-->
+        <th>Product Id</th>
+        <th>Product Name</th>
+        <th>Quantity</th>
+        <th>Prices</th>
+        <th>Image</th>
+      </tr>
+      {{#each model as |product|}}
+        <tr>
+            <!--<td>edit</td>-->
+            <td>{{product.id}}</td>
+            <td>{{product.productName}}</td>
+            <td>{{product.quantity}}</td>
+            <td>{{product.Prices.[0].displayName}}</td>
+            <td><img src="{{product.imageUrl}}" class="thumb"></td>
+        </tr>
+      {{/each}}
+      <!--<tr ng-repeat="product in inventory.products">-->
+        <!--<td><a href="/inventory/{{product.id}}"><i class="fa fa-pencil-square-o fa-2x"></i></a></td>
+        <td>{{product.id}}</td>
+        <td>{{product.productName}}</td>
+        <td>{{product.quantity}}</td>
+        <td>
+          <div ng-repeat="price in product.Prices">
+            <span>{{price.displayName}}</span>
+          </div>
+        </td>
+        <td><img src="{{product.imageUrl}}" class="thumb"></td>-->
+
+      <!--</tr>-->
+    </table>
+  </div>
+</div>
+{{outlet}}

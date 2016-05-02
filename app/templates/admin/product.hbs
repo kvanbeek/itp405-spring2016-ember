@@ -1,0 +1,58 @@
+
+<div class="container">
+    {{#if success}}
+    <div class="alert alert-success" role="alert">
+        {{success}}
+    </div>
+    {{/if}}
+    
+    {{#if error}}
+    <div class="alert alert-danger" role="alert">
+        {{error}}
+    </div>
+    {{/if}}
+  <form name="myForm" id="myForm">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Product Name</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Display Name" name="path" id="path">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Quantity</label>
+      <input type="text" class="form-control" placeholder="Quantity" name="quantity" id="quantity">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Description</label>
+      <textarea class="form-control" id="exampleTextarea" rows="3" name="description" id="description"></textarea>
+    </div>
+
+
+    <div class="form-group">
+      <table class="table table-hover">
+        <tr>
+          <th>Display Name</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Quantity Display</th>
+          <th>Weight/Unit</th>
+        </tr>
+        <tr>
+
+          <td><input type="text" class="form-control" name="displayName" id="displayName"></td>
+          <td><input type="text" class="form-control" name="price" id="priceDisplay"></td>
+          <td><input type="text" class="form-control" name="quantity" id="priceQuantity"></td>
+          <td><input type="text" class="form-control" name="quantityDisplay" id="quantityDisplay"></td>
+          <td><input type="text" class="form-control" name="weight" id="weight"></td>
+
+        </tr>
+      </table>
+
+    <input type="file" class="button" name="file" id="productImage">
+
+
+
+
+    </div>
+    <button type="submit" class="btn btn-primary" {{action "submitForm" on="click"}}>Submit</button>
+  </form>
+</div>
+{{outlet}}

@@ -1,0 +1,31 @@
+<div class="container" style="margin-top: 50px;">
+    <h1>Checkout</h1>
+    <div class="row">
+      <ul>
+        {{#each model as |item|}}
+
+        <li class="list-group-item" style="height: 60px;">
+          <div>
+            <img src="{{item.imageUrl}}" width="50"/>
+            {{item.productName}}
+            <div class="pull-xs-right">
+              ${{item.price}} <button class="btn btn-danger" {{action "removeFromCart" item}}><i class="fa fa-times" aria-hidden="true"></i></button>
+            </div>
+          </div>
+        </li>
+
+        {{/each}}
+      </ul>
+    </div>
+    <div class="pull-xs-right">
+     Total Price: ${{shoppingCart.totalPrice}}
+    </div>
+    <div style="clear: both;"></div>
+    <div style="text-align: center; margin-top: 10px;">
+        <button class="btn btn-primary" {{action "sendOrder"}}>Checkout</button>
+    </div>
+    <div>{{error}}</div>
+</div>
+
+
+{{outlet}}

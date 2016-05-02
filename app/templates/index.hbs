@@ -1,0 +1,29 @@
+<div class="container">
+
+{{places-autocomplete}}
+
+  <div class="row">
+    {{#each model as |product|}}
+        <div class="col-md-4" style="height: 300px;">
+          <div style="height: 100%; background: url({{product.imageUrl}}) 50% 50% / cover;">
+            <div class="priceSelector">
+              {{product.productName}}
+              <div class="prices">
+                <!-- {{#price-select product=product}}{{/price-select}} -->
+                <div class="priceBackground">
+                    <button class="btn btn-primary-outline">{{product.Prices.[0].displayName}}</button>
+                </div>
+
+
+              </div>
+              <div class="addToCart">
+                <button class="btn btn-success" {{action "addToCart" product}}>Add To Cart</button>
+
+              </div>
+            </div>
+          </div>
+        </div>
+    {{/each}}
+  </div>
+</div>
+{{outlet}}
