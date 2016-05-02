@@ -33,20 +33,24 @@ export default Ember.Controller.extend({
             
             var xhr = new XMLHttpRequest();
 
+            // xhr.open('POST', 'http://localhost:8000/admin/product', true);
             xhr.open('POST', 'https://api.buddyfarms.com/admin/product', true);
             xhr.setRequestHeader("Authorization", Ember.$.cookie('access_token'));
             xhr.onload = function () {
+                console.log(xhr);
                 if (xhr.status === 200) {
                     // File(s) uploaded.
                     self.set('success', 'New product successfully added');
                     setTimeout(function(){
                         self.set('success', null);
-                    }, 5000);
+                    }, 6000);
                 } else {
-                    self.set('error', xhr.message);
+                    
+                    var error = JSON.parse(xhr.response);
+                    self.set('error', error.message);
                     setTimeout(function(){
                         self.set('error', null);
-                    }, 5000);
+                    }, 6000);
                 }
             };
             

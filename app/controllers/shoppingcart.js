@@ -32,14 +32,30 @@ export default Ember.Controller.extend({
         console.log(data);
                         
         this.get('api').sendOrder(data).then(function (response) {
+          // console.log('testing');
           console.log(response);
           if (response.success) {
             self.get('estimate').setEstimate(response);
             self.transitionToRoute('summary');
           } else {
-            console.log(response);
-            this.set('error', response.message);
+            // console.log('json response', response.responseJSON);
+            console.log('json response: ');
+            console.log(response.responseText);
+            var errorMessage = response.message || response.responseJSON.message;
+            self.set('error', errorMessage);
+            console.log(errorMessage);
+            setTimeout(function(){
+                self.set('error', null);
+            }, 10000);
           }
+        }, function (error) {
+            console.log('json response: ');
+            var errorMessage = error.message || error.responseJSON.message;
+            self.set('error', errorMessage);
+            console.log(errorMessage);
+            setTimeout(function(){
+                self.set('error', null);
+            }, 10000);
         });
         
 
